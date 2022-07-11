@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>논픽셔 스크롤 따라해보기</title>
+    <style>
+        .ddd {
+            height: 300vh;
+        }
+
+        .box {
+            position: fixed;
+            inset: 50% auto auto 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box .ddetail {
+            width: 400px;
+            height: 400px;
+            background: #ff0;
+
+        }
+
+        .box .ddetail span {
+            position: absolute;
+            inset: 0 auto auto 50%;
+            font-size: 50px;
+            height: 50%;
+            width: 50px;
+            background: #0f0;
+            transform: translateX(-50%);
+            transform-origin: bottom center;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="ddd">
+        <div class="box">
+            <div class="ddetail"></div>
+        </div>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        const DDD = document.querySelector('.box .ddetail');
+        window.addEventListener('scroll', function () {
+            let sct = window.scrollY;
+            console.log(sct, DDD);
+            DDD.style.transform = 'rotate(' + sct / 2 + 'deg)'
+        });
+
+        function 회전문자(word) {
+            const words = [...word];
+            const wwords = words.map(el => '<span>' + el + '</span>');
+            const dwords = DDD.innerHTML = wwords;
+            const SPAN = document.querySelectorAll('.box .ddetail span');
+            SPAN.forEach((el, idx) => {
+                SPAN[idx].style.transform = 'translateX(-50%) rotate(' + idx * (360 / SPAN.length) + 'deg)'
+            })
+            // DDD.append(wwords)
+        }
+        회전문자('abcdefghijklmnop');
+    </script>
+</body>
+
+</html>
