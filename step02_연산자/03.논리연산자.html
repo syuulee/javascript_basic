@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022.07.12. 연산자03_논리연산자</title>
+</head>
+
+<body>
+    <script>
+        let 참 = true;
+        let 거짓 = false;
+        const a = 'ㅇㄷㅇ'
+
+        console.log(참, 거짓);
+        console.log(!참, !거짓); // ! not 부정연산자
+
+        console.log(참 && 거짓, 참 && 참, 거짓 && 거짓); // AND연산자. 하나라도 거짓이면 거짓. 둘 다 참일 때만 참.
+        console.log(거짓 || 참, 거짓 || 거짓); // || OR연산자. 허나라도 참이면 참. 
+
+        a ? console.log(a + ' 진실한 너') : console.log('거짓된 너');
+        // if 버전
+        if (!a) {
+            console.log(a + ' 진실한 너')
+        } else {
+            console.log('거짓된 너')
+        }
+
+
+        a && console.log(a + ' 진실한 너');
+        // if 버전
+        if (a) {
+            console.log(a + ' 진실한 너')
+        }
+
+        !a || console.log('거짓된 너');
+        a || console.log('거짓된 너'); //a가 참이어서, console.log('거짓된 너')은 없는 걸로 친다. 그래서 console에 찍히는 게 없음.
+
+        const Test = () => {
+            return (
+                a ? <h2>hello</h2> : <h2>bye</h2>
+            )
+        }
+    </script>
+</body>
+
+</html>
