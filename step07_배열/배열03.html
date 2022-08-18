@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022.07.20. 배열03 : </title>
+</head>
+
+<body>
+    <h1>배열을 공부하겠다ㅏㅏㅏㅏㅏ_03 forEach</h1>
+    <div id="tapMenu">
+        <ul class="tMenu">
+            <li>menu01</li>
+            <li>menu02</li>
+            <li>menu03</li>
+        </ul>
+        <div class="tContent">
+            <div>content01</div>
+            <div>content02</div>
+            <div>content03</div>
+        </div>
+    </div>
+    <script>
+        const 걍배열 = [
+            { id: 1, content: '빙빙꼬였네 스크류바' },
+            { id: 2, content: '거꾸로해도 바밤바' },
+            { id: 3, content: '상어도 무서운 죠스바' },
+            { id: 4, content: '간석기 빠삐코' },
+            { id: 5, content: '설레임' },
+            { id: 6, content: '구구81 구구콘' },
+            { id: 7, content: '투게더와 쿠앤크' },
+        ];
+
+        // 배열을 도와주는 함수 01. forEach
+        // 걍배열의 메소드로 들어온 forEach이고 el하나하나를 매개변수로 가지고 들어옴
+        걍배열.forEach((el, idx, arry) => console.log(el.content, idx, arry)); // 매개변수로 가지고 오는 거라서  el대신에 다른 단어로도 사용가능
+
+        //  번호반환으로 tap메뉴 만들 수 있음
+
+        const TUL = document.querySelectorAll('.tMenu>li'); //유사배열는 forEach로 다룰 수 있음 
+        const TCON = document.querySelectorAll('.tContent>div');
+        console.log(TUL);
+
+        TUL.forEach((el, idx) => {
+            el.addEventListener('click', () => {
+                TUL.forEach(el => el.classList.remove('on'))
+                el.classList.add('on');
+                // console.log(idx);
+                TCON.forEach(el => el.classList.remove('on'))
+                TCON[idx].classList.add('on');
+            })
+        });
+
+        const 스프레드 = [...TUL]; //배열이고 나열해뒀다~
+        console.log(스프레드)
+
+        const UL = document.querySelector('.tMenu');
+        const LI = [...UL.children]; //html덩어리를 반환하고 배열이 아님
+        console.log(LI);
+
+        // indexOf() 배열의 번호(index)를 받아옴
+
+        UL.addEventListener('click', e => {
+            // console.log(e.target, e.currentTarget)
+            let idx = LI.indexOf(e.target)
+            console.log(idx)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020.07.19. 객체03 : 비구조할당</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        // 비구조할당...javascript 구조분해 할당
+
+        const 걍객체 = {
+            name: '있어유',
+            age: 300,
+            nickname: '없어유'
+        }
+        const { age, name } = 걍객체;  // 이름 바뀌면 안되고, 순서는 상관없음
+
+        console.log(name)
+    </script>
+</body>
+
+</html>
